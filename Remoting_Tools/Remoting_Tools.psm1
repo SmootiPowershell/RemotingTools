@@ -1,4 +1,13 @@
 function Get-UserSession {
+<#
+        .Synopsis
+            Gets user sessions from remote computer.
+        .PARAMETER ComputerName
+            Name or IP of computer.
+        .EXAMPLE
+            Get-UserSession -ComputerName Computer1            
+    #>
+
     param (
         [Parameter (
             Mandatory = $true
@@ -21,6 +30,23 @@ function Get-UserSession {
 }
 
 function Start-RDPSession {
+<#
+        .Synopsis
+            Initiates an rdp session.
+        .PARAMETER ComputerName
+            Name or IP of computer.
+        .PARAMETER ID
+            Session ID of user you wish to shadow.
+        .PARAMETER Control
+            If specified session will be able to be controlled.
+        .EXAMPLE
+            Start-RDPSession -ComputerName Computer1            
+        .EXAMPLE
+            Start-RDPSession -ComputerName Computer2 -ID 1
+        .EXAMPLE
+            Start-RDPSession -ComputerName Computer2 -ID 1 -Control
+    #>
+
     Param (
         [Parameter (
             Mandatory = $true
