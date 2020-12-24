@@ -28,9 +28,9 @@ function Start-RDPSession {
         [string] $ComputerName,
 
         [Parameter (
-            Mandatory = $true
+            Mandatory = $false
         )]
-        [int] $ID,
+        [int] $ID = $null,
 
         [switch] $Control
     )
@@ -39,8 +39,11 @@ function Start-RDPSession {
         if ($Control) {
             mstsc.exe /v:$ComputerName /Shadow:$ID /Control
         }
-        else {
+        elseif ($ID){
             mstsc.exe /v:$ComputerName /Shadow:$ID
+        }
+        else {
+            mstsc.exe /v:$ComputerName
         }
     }
     Catch [System.Management.Automation.RemoteException] {
