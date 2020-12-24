@@ -20,7 +20,7 @@ function Get-UserSession {
     return $Users
 }
 
-function Start-UserSession {
+function Start-RDPSession {
     Param (
         [Parameter (
             Mandatory = $true
@@ -32,11 +32,11 @@ function Start-UserSession {
         )]
         [int] $ID,
 
-        [switch] $Shadow
+        [switch] $Control
     )
 
     Try {
-        if ($Shadow) {
+        if ($Control) {
             mstsc.exe /v:$ComputerName /Shadow:$ID /Control
         }
         else {
