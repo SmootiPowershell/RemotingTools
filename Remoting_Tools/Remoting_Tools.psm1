@@ -1,3 +1,11 @@
+<#
+    .Synopsis
+        Functions to assist with remotely administering a machine
+    .NOTES
+        Version:        1.0
+        Author:         Robert Owens
+        Creation Date:  01/05/2021
+#>
 function Get-UserSession {
 <#
         .Synopsis
